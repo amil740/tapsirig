@@ -1,0 +1,46 @@
+
+//int num = 40;
+//int count = 0;
+
+//if (num % 3 == 0)
+//    Console.WriteLine("Divisible by 3");
+//else
+//    Console.WriteLine("Not divisible by 3");
+
+//for (int i = 1; i <= 10; i++)
+//{
+//    if (i % 3 == 0)
+//        count++;
+//}
+
+//Console.WriteLine("3-ə bölünənlərin sayı: " + count
+//int a = 10;
+//int b = 100;
+//int count = 0;
+//int sum = 0;
+
+//for (int i = a; i <= b; i++)
+//{
+//    if (i % 10 == 0)
+//    {
+//        count++;    
+//        sum += i;
+//    }
+//}
+
+//Console.WriteLine("Sonu 0 ile bitenlerin cemi: " + sum);
+#region
+//int n = 100;
+//int count = 0;
+
+//for (int i = 1; i <= n; i++)
+//{
+//    if (i % 3 == 0)
+//        count++;
+//}
+
+//Console.WriteLine(count);
+#endregion
+#region 2
+#endregion
+
