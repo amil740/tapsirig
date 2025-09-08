@@ -1,0 +1,19 @@
+string score = "5";
+switch (score)
+{
+    case "2":
+        Console.WriteLine("Pis");
+        break;
+    case "3":
+        Console.WriteLine("Kafi");
+        break;
+    case "4":
+        Console.WriteLine("Yaxsi");
+        break;
+    case "5":
+        Console.WriteLine("Ela");
+        break;
+    default:
+        Console.WriteLine("2-5 arasi eded daxil edin");
+        break;
+}
