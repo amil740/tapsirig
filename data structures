@@ -1,0 +1,35 @@
+/int[] numbers = { 22, 25, 67, 88, 110 };
+
+//int sum = 0;
+
+//foreach (int number in numbers)
+//{
+//    sum += number;
+//}
+
+//Console.WriteLine("cem : " + sum);
+//int[] numbers = { 34, 43, 56, 45, 67, 45, 67 };
+//int max = numbers[0];
+//foreach (int number in numbers)
+//{
+//    if (number>max)
+//        max = number;  
+//}
+//Console.WriteLine("Verilenler arasinda en boyuk deyere sahib element: "+ max);
+//int[] ages = { 17, 18, 30, 35, 66, 78, 82 };
+
+//int max = ages[0];
+//int min = ages[0];
+
+//foreach (int age in ages)
+//{
+//    if (age > max)
+//        max = age;
+//    else if (age < min)
+//        min = age;
+//}
+
+//Console.WriteLine("Max deyer: " + max);
+//Console.WriteLine("Min deyer: " + min);
+//Console.WriteLine("Max ve minimum deyerlerin cemi: " + (ages[0] + ages[ages.Length - 1]));
+
