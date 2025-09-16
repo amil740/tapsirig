@@ -1,0 +1,62 @@
+using System;
+
+namespace ConsoleApp20
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Prompt user for input
+            Console.Write("Ədəd daxil edin: ");
+            string input = Console.ReadLine();
+
+            // Validate input is a number
+            if (!int.TryParse(input, out int num) || num <= 0)
+            {
+                Console.WriteLine("Xahiş edirik müsbət tam ədəd daxil edin.");
+                return;
+            }
+
+            // Check if digits are in ascending order
+            bool isAscending = CheckAscendingDigits(num);
+
+            // Display the result
+            if (isAscending)
+            {
+                Console.WriteLine("Artan sıradır");
+            }
+            else
+            {
+                Console.WriteLine("Artan sıra deyil");
+            }
+
+            // Wait for user to press a key before closing
+            Console.WriteLine("\nProqramdan çıxmaq üçün hər hansı bir düyməyə basın...");
+            Console.ReadKey();
+        }
+
+        static bool CheckAscendingDigits(int number)
+        {
+            // Convert number to string to work with individual digits
+            string numStr = number.ToString();
+            
+            // If the number has only one digit, it's considered in ascending order
+            if (numStr.Length == 1)
+                return true;
+
+            // Check each digit against the previous digit
+            for (int i = 1; i < numStr.Length; i++)
+            {
+                // If current digit is not greater than previous digit, return false
+                if (numStr[i] <= numStr[i - 1])
+                {
+                    return false;
+                }
+            }
+            
+            // If we've checked all digits and all are in ascending order
+            return true;
+        }
+    }
+}
+
