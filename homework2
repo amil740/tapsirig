@@ -1,0 +1,129 @@
+using System;
+
+namespace ConsoleApp30
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = { 5, -3, 10, -7, 0, 8, -12 };
+
+            Console.WriteLine("Original array:");
+            PrintArray(numbers);
+
+            int[] result = ConvertNegativesToPositive(numbers);
+
+            Console.WriteLine("\nArray after conversion:");
+            PrintArray(result);
+            
+            string[] fullNames = { "John Doe", "Jane Smith", "Robert Johnson", "Maria Garcia", "Ali Ahmed" };
+            
+            Console.WriteLine("\n\nFull names array:");
+            PrintStringArray(fullNames);
+            
+            string[] firstNames = ExtractFirstNames(fullNames);
+            
+            Console.WriteLine("\nFirst names array:");
+            PrintStringArray(firstNames);
+            
+            // Demo for ContainsOnlyLetters
+            string[] testTexts = { "OnlyLetters", "Contains123", "Has Spaces", "WithSymbols!", "", "əƏşŞçÇöÖüÜğĞıİ" };
+            
+            Console.WriteLine("\n\nTesting strings for letters only:");
+            foreach (var text in testTexts)
+            {
+                Console.WriteLine($"\"{text}\": {(ContainsOnlyLetters(text) ? "Contains only letters" : "Contains non-letter characters")}");
+            }
+        }
+        
+        static int[] ConvertNegativesToPositive(int[] array)
+        {
+            if (array == null)
+            {
+                throw new ArgumentNullException(nameof(array), "Array parameter must be initialized");
+            }
+            
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] < 0)
+                {
+                    array[i] = Math.Abs(array[i]);
+                }
+            }
+            
+            return array;
+        }
+        
+        static string[] ExtractFirstNames(string[] fullNames)
+        {
+            if (fullNames == null)
+            {
+                throw new ArgumentNullException(nameof(fullNames), "Full names array must be initialized");
+            }
+            
+            string[] firstNames = new string[fullNames.Length];
+            
+            for (int i = 0; i < fullNames.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(fullNames[i]))
+                {
+                    string[] nameParts = fullNames[i].Split(' ');
+                    firstNames[i] = nameParts[0];
+                }
+                else
+                {
+                    firstNames[i] = string.Empty;
+                }
+            }
+            
+            return firstNames;
+        }
+
+        static bool ContainsOnlyLetters(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                return false;
+            }
+            
+            foreach (char c in text)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+        
+        static void PrintArray(int[] array)
+        {
+            Console.Write("["); 
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i]);
+                if (i < array.Length - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine("]");
+        }
+        
+        static void PrintStringArray(string[] array)
+        {
+            Console.Write("["); 
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write($"\"{array[i]}\"");
+                if (i < array.Length - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine("]");
+        }
+    }
+}
+
