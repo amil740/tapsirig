@@ -1,0 +1,35 @@
+namespace ConsoleApp34
+{
+    internal class Calculation
+    {
+        public static void PerformCalculations()
+        {
+            Console.WriteLine("Simple Calculator");
+            
+            // Get first number
+            Console.Write("Enter first number: ");
+            int num1 = int.Parse(Console.ReadLine());
+            
+            // Get second number
+            Console.Write("Enter second number: ");
+            int num2 = int.Parse(Console.ReadLine());
+            
+            // Display results
+            Console.WriteLine($"Toplama: {num1} + {num2} = {Calculator.Add(num1, num2)}");
+            Console.WriteLine($"Vurma: {num1} × {num2} = {Calculator.Multiply(num1, num2)}");
+        }
+    }
+    
+    public static class Calculator
+    {
+        public static int Add(int a, int b) 
+        {
+            return a + b;
+        }
+        
+        public static int Multiply(int a, int b) 
+        {
+            return a * b;
+        }
+    }
+}
