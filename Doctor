@@ -1,0 +1,73 @@
+namespace ConsoleApp36
+{
+    internal class DoctorService
+    {
+        public Doctor[] doctors = new Doctor[]
+        {
+            new Doctor { Fullname = "John Smith", Age = 45, address = "New York", email = "john@example.com" },
+            new Doctor { Fullname = "Sarah Johnson", Age = 38, address = "Chicago", email = "sarah@example.com" },
+            new Doctor { Fullname = "Michael Brown", Age = 52, address = "Los Angeles", email = "michael@example.com" },
+            new Doctor { Fullname = "Emily Davis", Age = 41, address = "Houston", email = "emily@example.com" }
+        };
+
+        public string GetAllDoctors()
+        {
+            StringBuilder result = new StringBuilder("All Doctors:\n");
+            for (int i = 0; i < doctors.Length; i++)
+            {
+                Doctor doctor = doctors[i];
+                result.AppendLine($"Name: {doctor.Fullname}, Age: {doctor.Age}, Address: {doctor.address}, Email: {doctor.email}");
+            }
+            return result.ToString();
+        }
+
+        public string GetByFullName(string fullname)
+        {
+            for (int i = 0; i < doctors.Length; i++)
+            {
+                Doctor doctor = doctors[i];
+                if (doctor.Fullname.Contains(fullname))
+                {
+                    return $"Doctor found: Name: {doctor.Fullname}, Age: {doctor.Age}, Address: {doctor.address}, Email: {doctor.email}";
+                }
+            }
+            return $"No doctor found with name containing: {fullname}";
+        }
+
+        public string GetByAge(int age)
+        {
+            StringBuilder result = new StringBuilder($"Doctors with Age {age}:\n");
+            bool found = false;
+            
+            for (int i = 0; i < doctors.Length; i++)
+            {
+                Doctor doctor = doctors[i];
+                if (doctor.Age == age)
+                {
+                    result.AppendLine($"Name: {doctor.Fullname}, Age: {doctor.Age}, Address: {doctor.address}, Email: {doctor.email}");
+                    found = true;
+                }
+            }
+            
+            if (found)
+            {
+                return result.ToString();
+            }
+            else
+            {
+                return $"No doctors found with age: {age}";
+            }
+        }
+
+        public double GetAverageAge()
+        {
+            int sum = 0;
+            for (int i = 0; i < doctors.Length; i++)
+            {
+                sum += doctors[i].Age;
+            }
+            
+            return (double)sum / doctors.Length;
+        }
+    }
+}
