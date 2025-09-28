@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp39
+{
+    public class Employee : IEmployee
+    {
+        public string FullName { get; set; }
+        public string Address { get; set; }
+        public int Age { get; set; }
+        public string PhoneNumber { get; set; }    
+        public string Email { get; set; }
+    }
+
+    public static class EmployeeExtensions
+    {
+        public static void GetAll(this Employee employee)
+        {
+            Console.WriteLine($"Full Name: {employee.FullName}");
+            Console.WriteLine($"Address: {employee.Address}");
+            Console.WriteLine($"Age: {employee.Age}");
+            Console.WriteLine($"Phone Number: {employee.PhoneNumber}");
+            Console.WriteLine($"Email: {employee.Email}");
+        }
+
+        public static bool SearchByName(this Employee employee, string name)
+        {
+            if (employee.FullName == name)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static string FilterByAddress(this Employee employee, string address)
+        {
+            if (employee.Address == address)
+            {
+                return employee.FullName;
+            }
+            return "No match found";
+        }
+        public static string SortByAge(this Employee employee1, Employee employee2)
+        {
+            if (employee1.Age > employee2.Age)
+            {
+                return $"{employee1.FullName} is older than {employee2.FullName}";
+            }
+            else if (employee1.Age < employee2.Age)
+            {
+                return $"{employee2.FullName} is older than {employee1.FullName}";
+            }
+            else
+            {
+                return $"{employee1.FullName} and {employee2.FullName} are of the same age";
+            }
+        }
+            public static int SumOfEmployeeAges(this List<Employee> employees)
+            {
+                int sum = 0;
+                foreach (var emp in employees)
+                {
+                    sum += emp.Age;
+                }
+                return sum;
+        }
+        public static double AverageEmployeeAge(this List<Employee> employees)
+        {
+            int sum = employees.SumOfEmployeeAges();
+            return (double)sum / employees.Count;
+        }
+    }
+}
